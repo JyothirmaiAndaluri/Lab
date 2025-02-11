@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Heading Text</title>
+    <!-- Include jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body{
+            background: linear-gradient(45deg, #e6dfd9, #7c98b3);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #6bffc6 0%, #3d68b0 50%, #051180 100%);
+            background-attachment: fixed;
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+        }
+        #one, #three, #five, #seven, #nine {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 50px;
+                margin: 20px 0;
+                border-radius: 10px;
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'Trebuchet MS', sans-serif;
+                font-size: 1.1em;
+                letter-spacing: 0.5px;
+                
+                & button {
+                    padding: 12px 24px;
+                    border: none;
+                    border-radius: 25px;
+                    background: linear-gradient(45deg, #6bffc6, #051180);
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                }
+                
+                & button:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                    background: linear-gradient(45deg, #b8b2af, #380469);
+                }
+        }
+
+        #two, #four, #six, #eight, #ten{
+            background-color: rgba(255, 255, 255, 0.1);
+                padding: 50px;
+                margin: 20px 0;
+                border-radius: 10px;
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'Trebuchet MS', sans-serif;
+                font-size: 1.1em;
+                letter-spacing: 0.5px;
+                
+                & button {
+                    padding: 12px 24px;
+                    border: none;
+                    border-radius: 25px;
+                    background: linear-gradient(45deg, #6bffc6, #051180);
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                }
+                
+                & button:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                    background: linear-gradient(45deg, #b8b2af, #380469);
+                }
+        }
+
+        
+
+         .highlight {
+            background-color: slategray;
+            color: seagreen;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #eight{
+            position: relative;
+            min-height: 150px;
+            overflow: hidden;
+            
+            & #box {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 20px auto;
+            }
+        }
+        #box {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            position: absolute;
+            top: 1250px;
+            left: 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transform: rotate(-5deg);
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        #myPara {
+            font-size: 16px; /* Default font size */
+        }
+        #six{
+            justify-content: space-between;
+            & input {
+                padding: 12px;
+                border: 2px solid #ccc;
+                border-radius: 6px;
+                font-size: 16px;
+                width: 300px;
+                margin-bottom: 15px;
+                transition: border-color 0.3s ease;
+            }
+            & #getValue {
+                margin-bottom: 10px;
+            }
+            
+            & #setValue {
+                margin-top: 10px;
+            }
+
+            & input:focus {
+                border-color: #051180;
+                outline: none;
+                box-shadow: 0 0 5px rgba(5, 17, 128, 0.3);
+            }
+
+            & button {
+                margin: 0 10px;
+            }
+
+            & #displayText {
+                margin-top: 15px;
+                color: #333;
+                font-weight: 500;
+            }
+        }
+        #nine{
+            & #myPara {
+                margin-bottom: 20px;
+            }
+            
+            & #increaseSize {
+                margin-bottom: 15px;
+            }
+            & button {
+                padding: 8px 16px;
+                margin: 0 10px;
+            }
+            & #decreaseSize {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="one">
+        <h1 id="heading">Hello, Guyzzz!</h1>
+        <button id="changeText">Change Heading</button>
+    </section>
+    <br><br>
+    <section id="two">
+        <button id="toggleBtn">Toggle Para</button>
+        <p id="myParagraph">Just one small positive thought in the morning can change your whole day.</p>
+    </section>
+    
+    <br><br>
+    <section id="three">
+        <img id="myImage" src="./img/ef4db736d8a1c3558de1ca986a25702a.jpg" alt="Placeholder Image" width="300">
+        <br><br>
+        <button id="changeImage">Change Image</button>
+    </section>
+    
+    <br><br>
+    <section id="four">
+        <a id="myLink" href="https://colab.research.google.com/drive/1pdtrj94thbfMtdNMR31TTtHNTOtCivhd?usp=sharing" target="_blank">Visit My Colab Project</a>
+        <br><br>
+        <button id="changeLink">Change Link</button>
+    </section>
+    <br><br>
+    <section id="five">
+        <div id="colorBox">Click the button</div>
+        <br><br>
+        <button id="changeColor">Change Color</button>
+    </section>
+
+    <br><br>
+    <section id="six">
+        <input type="text" id="myInput" placeholder="Enter text here">
+        <button id="getValue">Get Value</button>
+        <button id="setValue">Set Value</button>
+        <p id="displayText"></p>
+    </section>
+    
+    <br><br>
+    <section id="seven">
+        <p id="myText">Hover over this text to see my Magic.</p>
+    </section>
+
+    <br><br>
+    <section id="eight">
+        <button id="moveBox">Move Box</button>
+        <div id="box"></div>
+    </section>
+
+    <br><br><br><br><br><br><br><br>
+    <section id="nine">
+        <p id="myPara">Click the buttons to change my font size!</p>
+        <button id="increaseSize">Increase Font Size</button>
+        <button id="decreaseSize">Decrease Font Size</button>
+    </section>
+
+    <br><br>
+    <section id="ten">
+        <h1 id="heading">Click me - I'm a heading!</h1>
+        <p id="paragraph">Click me - I'm a paragraph!</p>
+        <button id="button">Click me - I'm a button!</button>
+    </section>
+    <script>
+        $(document).ready(function(){
+            $("#changeText").click(function(){
+                $("#heading").text("Itzz Me Jyoo!"); // Modify h1 text
+            });
+        });
+
+        $(document).ready(function(){
+            $("#toggleBtn").click(function(){
+                $("#myParagraph").toggle(); // Toggle visibility
+            });
+        });
+        $(document).ready(function(){
+            $("#changeImage").click(function(){
+                $("#myImage").attr("src", "./img/Photo.jpg"); // Change image source
+            });
+        });
+        $(document).ready(function(){
+            $("#changeLink").click(function(){
+                $("#myLink").attr("href", "https://www.google.com").text("Visit Google"); // Update href and text
+            });
+        });
+        $(document).ready(function(){
+            $("#changeColor").click(function(){
+                $("#colorBox").css("background-color", "slateblue"); // Change background color
+            });
+        });
+        $(document).ready(function(){
+            // Get input value and display it
+            $("#getValue").click(function(){
+                var inputValue = $("#myInput").val(); // Get value
+                $("#displayText").text("You entered: " + inputValue);
+            });
+
+            // Set input field value
+            $("#setValue").click(function(){
+                $("#myInput").val("Hello,  Vasu Garu"); // Set value
+            });
+        });
+        $(document).ready(function(){
+            $("#myText").mouseover(function(){
+                $(this).addClass("highlight"); // Add class on mouseover
+            });
+
+            $("#myText").mouseout(function(){
+                $(this).removeClass("highlight"); // Remove class on mouseout
+            });
+        });
+        $(document).ready(function(){
+            $("#moveBox").click(function(){
+                $("#box").animate({left: "500px"}, 1000); // Move the div to the right
+            });
+        });
+        $(document).ready(function(){
+            $("#increaseSize").click(function(){
+                let currentSize = parseInt($("#myPara").css("font-size")); // Get current font size
+                $("#myPara").css("font-size", (currentSize + 2) + "px"); // Increase by 2px
+            });
+
+            $("#decreaseSize").click(function(){
+                let currentSize = parseInt($("#myPara").css("font-size")); // Get current font size
+                $("#myPara").css("font-size", (currentSize - 2) + "px"); // Decrease by 2px
+            });
+        });
+        $(document).ready(function(){
+            $("#heading,#paragraph,#button").click(function(){
+                alert("You clicked: " + $(this).text()); // Show alert with clicked element's text
+            });
+        });
+    </script>
+
+</body>
+</html>
